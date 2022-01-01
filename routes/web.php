@@ -15,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/event/form', 'EventAddController@showForm')->middleware('auth');
+Route::get('/event/add', 'EventAddController@addEvent')->middleware('auth');
+Route::get('/events', 'EventController@showEvents');
+Route::get('/user/sign-in', 'UserController@signIn');
