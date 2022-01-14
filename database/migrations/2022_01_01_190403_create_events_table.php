@@ -20,9 +20,8 @@ class CreateEventsTable extends Migration
             $table->datetime('date_end');            
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('statuses');
-            $table->string('slug');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('status_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
